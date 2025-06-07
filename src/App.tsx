@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import StoryDashboard from "./components/StoryDashboard";
+import StoryWindow from "./components/StoryWindow";
+import { Story } from "./utils/types";
+import stories from "./assets/stories.json";
 
 function App() {
+  const [users, setUsers] = useState<Story[]>([]);
+  const [activeUserId, setActiveUserId] = useState<number | null>(null);
+
+  useEffect(() => {
+    setUsers(stories);
+  }, []);
+
+  const active = users.find((item) => item.userId === activeUserId) || null;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <StoryDashboard onUserSelect={setActiveUserId} />
+      {active && (
+        <StoryWindow
+          user={active}
+          allUsers={users}
+          onClose={() => setActiveUserId(null)}
+        />
+      )}
     </div>
   );
 }

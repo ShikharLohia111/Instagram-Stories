@@ -1,46 +1,60 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The app can be accessed here:
 
-## Available Scripts
+Deployment Link: https://instagramlike-stories.vercel.app/
 
-In the project directory, you can run:
+How to Run the App Locally
+Clone the repository:
 
-### `npm start`
+git clone https://github.com/ShikharLohia111/Instagram-Stories.git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+cd Instagram-Stories
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. npm install
 
-### `npm test`
+2. npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This will open the app at http://localhost:3000 in your browser.
 
-### `npm run build`
+-----------------------------
+How to Run Tests
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run the test suite:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. npm test
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Test are written in jest and react testing library. It covers basic unit tests like rendering,auto navigation after delay,manual navigation,closing of story along with End to end test of all of these combined.
 
-### `npm run eject`
+Design and code decisions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The app is optimized for mobile or any other device by using relative units (like vh) and full-screen layouts. 
+Tap areas for navigation are based on screen 30% each side.
+All components are written in React with TypeScript. No third-party libraries or animation frameworks are used, as per the assignment guidelines.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Images are statically imported and mapped to file names using an object
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Currently the app handles the data using JSON but it can be easily replaced with an API if needed.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Auto navigation is created using settimeout timers and mocked using faketimer in test cases.
+Navigation transitions are implemented with simple CSS classes for smooth effects.
 
-## Learn More
+---------------------------------,
+Features Implemented
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Story thumbnails with user names
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Story viewer that supports multiple stories per user with name of user visible
+
+Auto advance to next story every 5 seconds
+
+Tap left or right to go to previous or next story
+
+Close button to exit the viewer anytime
+
+Fade Transition animations between users
+
+Tests that simulate user interaction and timing
+
+Optimizations:
+1. Instead of storing images locally we can use API to get the required data from server
+2. To manage the state for larger application we can use redux

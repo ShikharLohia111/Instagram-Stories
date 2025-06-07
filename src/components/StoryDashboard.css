@@ -1,0 +1,49 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+}
+
+.header {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.horizontal-line {
+  width: 500px;
+  height: 2px;
+  background-color: #ccc;
+  padding-left: 100px;
+}
+.story-list {
+  display: flex;
+  overflow-x: auto;
+  padding: 8px;
+  gap: 12px;
+  align-items: center;
+}
+
+.story-thumbnail {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story-thumbnail img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 2px;
+  object-fit: cover;
+  border: 3px solid #0d770d;
+}
+
+.story-name {
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  max-width: 60px;
+}

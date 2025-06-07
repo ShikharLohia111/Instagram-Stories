@@ -1,0 +1,73 @@
+.story-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-image {
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.story-image.visible {
+  opacity: 1;
+}
+
+.loader {
+  position: absolute;
+  color: white;
+  font-size: 18px;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+.viewer-header {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  
+}
+.story-touch-area {
+  position: relative;
+}
+
+.left,
+.right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.story-image.fade-out {
+  opacity: 0;
+}
