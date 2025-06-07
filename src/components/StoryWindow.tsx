@@ -31,6 +31,7 @@ const StoryWindow: React.FC<Props> = ({ user, allUsers, onClose }) => {
     const currentUser = allUsers[currentIndex];
     const currentStory = currentUser.stories[index];
 
+    //Handle next as soon as first image opens
     useEffect(() => {
         const timeout = setTimeout(() => {
             handleNext();
@@ -48,11 +49,11 @@ const StoryWindow: React.FC<Props> = ({ user, allUsers, onClose }) => {
             setIndex(index + 1);
         } else if (currentIndex < allUsers.length - 1) {
             setTransitioning(true);
-            setTimeout(() => {
+            setTimeout(() => { // For transition
                 setCurrentIndex(currentIndex + 1);
                 setIndex(0);
                 setTransitioning(false);
-            }, 300); 
+            }, 300);
         } else {
             onClose();
         }
@@ -68,7 +69,8 @@ const StoryWindow: React.FC<Props> = ({ user, allUsers, onClose }) => {
                 const prevUserIndex = currentIndex - 1;
                 setCurrentIndex(prevUserIndex);
                 setIndex(allUsers[prevUserIndex].stories.length - 1);
-            })
+                setTransitioning(false);
+            },300)
         } else {
             onClose();
         }
@@ -77,13 +79,13 @@ const StoryWindow: React.FC<Props> = ({ user, allUsers, onClose }) => {
     return (
         <div className="story-window">
             <button className="close" onClick={onClose}>×</button>
-            <div className="viewer-header" >
+            <div className="viewer-header" data-testid="viewer-header">
                 {currentUser.userName}
             </div>
             {loading && <div className="loader">Loading...</div>}
             <div className="story-touch-area">
-                <div className="left" onClick={handlePrevious}></div>
-                <div className="right" onClick={handleNext}></div>
+                <div className="left" data-testid="left-tap" onClick={handlePrevious}></div> 
+                <div className="right" data-testid="right-tap" onClick={handleNext}></div>
                 <img
                     src={images[currentStory.url]}
                     alt={`Story ${currentStory.id}`}
