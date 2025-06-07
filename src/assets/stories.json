@@ -1,0 +1,38 @@
+[
+  {
+    "userId": 0,
+    "userName": "You",
+    "stories": [
+      { "id": 1, "url": "story1.jpg" }
+    ]
+  },
+  {
+    "userId": 1,
+    "userName": "Shikhar",
+    "stories": [
+      { "id": 101, "url": "story2.jpg" },
+      { "id": 102, "url": "story3.jpg" }
+    ]
+  },
+  {
+    "userId": 2,
+    "userName": "Krish",
+    "stories": [
+      { "id": 201, "url": "story4.jpg" } 
+    ]
+  },
+  {
+    "userId": 3,
+    "userName": "Raj",
+    "stories": [
+      { "id": 301, "url": "story5.jpg" } 
+    ]
+  },
+  {
+    "userId": 4,
+    "userName": "Nitin",
+    "stories": [
+      { "id": 401, "url": "story6.jpg" } 
+    ]
+  }
+]
